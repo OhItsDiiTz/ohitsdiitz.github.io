@@ -2,143 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Menu-based Ground Pound Calculator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Tools Hub</title>
+  <link rel="stylesheet" href="/assets/style.css">
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    .item-row { margin-bottom: 8px; }
-    label { margin-left: 8px; }
-    .discount-row, .button-row { margin: 12px 0; }
-    #result { white-space: pre-wrap; background: #eef; padding: 10px; border-radius: 6px; min-height: 80px; }
-    button { cursor: pointer; padding: 6px 12px; margin-right: 8px; }
+    body {
+      margin: 0;
+      background: #f8f9fa;
+      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+      color: #222;
+    }
+    header {
+      background: #292b2c;
+      color: #fff;
+      padding: 0.5em 0;
+      box-shadow: 0 2px 4px rgba(44,62,80,0.05);
+    }
+    nav {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      padding: 0.5em 0;
+    }
+    nav a {
+      color: #e4e8ef;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05em;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #fece33;
+      text-shadow: 0 0 3px #2223;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+      padding: 2em;
+    }
+    h1, h2 {
+      font-weight: 700;
+      margin-top: 0;
+      color: #454545;
+    }
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        gap: 16px;
+        padding: 1em 0;
+      }
+      .container {
+        padding: 1em;
+      }
+    }
   </style>
 </head>
 <body>
-
-  <h1>Menu Selector</h1>
-  <div id="menuList">
-    <button data-menuid="groundpound">Ground Pound</button>
-    <button data-menuid="creampies">CreamPies</button>
+  <header>
+    <nav>
+      <a href="/fivem/phantom/calculator/index.html">Phantom Register Calculator</a>
+      
+      <!-- Add links for other tools/pages here -->
+    </nav>
+  </header>
+  <div class="container">
+    <!-- Your page's unique content here -->
+    <h1>Welcome to My Tools Hub</h1>
+    <p>Choose a tool from the navigation above.</p>
   </div>
-
-  <h2>Calculator</h2>
-  <div id="calculatorContainer"></div>
-
-  <script>
-    const menus = {
-      groundpound: [
-        { name: "Vodka", price: 1000 },
-        { name: "Whiskey", price: 1000 },
-        { name: "Hennessy", price: 1000 },
-        { name: "Chicken Dinner", price: 300 },
-        { name: "Steak Dinner", price: 300 },
-        { name: "Bacon Panini", price: 300 },
-        { name: "Chocolate Muffin", price: 300 },
-        { name: "Latte", price: 300 },
-        { name: "Expresso Martini", price: 500 }
-      ],
-      creampies: [
-        { name: "Strawberry Ice Cream", price: 300 },
-        { name: "Double Chocolate Ice Cream", price: 300 },
-        { name: "The Cream Pie Special", price: 300 }
-      ]
-    };
-
-    const PDDiscount = 0.25;
-    const menuList = document.getElementById("menuList");
-    const calculatorContainer = document.getElementById("calculatorContainer");
-
-    function toInputName(name) {
-      return name.toLowerCase().replace(/\s+/g, '_');
-    }
-
-    function generateForm(menuId) {
-      const currentMenu = menus[menuId];
-      if (!currentMenu) {
-        calculatorContainer.innerHTML = "Menu not found.";
-        return;
-      }
-
-      calculatorContainer.innerHTML = '';
-
-      const form = document.createElement("form");
-      form.id = "calculatorForm";
-
-      currentMenu.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "item-row";
-
-        const input = document.createElement("input");
-        input.type = "number";
-        input.min = "0";
-        input.value = "0";
-        input.name = toInputName(item.name);
-
-        const label = document.createElement("label");
-        label.textContent = item.name;
-        label.htmlFor = input.name;
-
-        div.appendChild(input);
-        div.appendChild(label);
-        form.appendChild(div);
-      });
-
-      form.innerHTML += `
-        <div class="discount-row">
-          <input type="checkbox" id="emsDiscount" />
-          <label for="emsDiscount">EMS/PD Discount</label>
-        </div>
-        <div class="button-row">
-          <button type="button" id="calculateBtn">Calculate</button>
-          <button type="button" id="clearBtn">Clear</button>
-        </div>
-        <div id="result"></div>
-      `;
-
-      calculatorContainer.appendChild(form);
-
-      attachListeners(form, currentMenu);
-    }
-
-    function attachListeners(form, currentMenu) {
-      const calculateBtn = form.querySelector("#calculateBtn");
-      const clearBtn = form.querySelector("#clearBtn");
-      const resultDiv = form.querySelector("#result");
-
-      calculateBtn.addEventListener("click", () => {
-        let total = 0;
-        let details = "";
-        const discountApplied = form.querySelector("#emsDiscount").checked;
-
-        currentMenu.forEach(item => {
-          const inputName = toInputName(item.name);
-          const qty = parseInt(form.elements[inputName].value, 10) || 0;
-          if (qty <= 0) return;
-
-          let cost = item.price * qty;
-          if (discountApplied) cost -= cost * PDDiscount;
-
-          total += cost;
-          details += `${qty}x ${item.name} - $${cost.toLocaleString()}\n`;
-        });
-
-        resultDiv.textContent = `Total: $${total.toLocaleString()}\n\n${details}`;
-
-        try { navigator.clipboard.writeText(resultDiv.textContent); } catch {}
-      });
-
-      clearBtn.addEventListener("click", () => {
-        form.reset();
-        resultDiv.textContent = "";
-      });
-    }
-
-    menuList.addEventListener("click", e => {
-      if (e.target.tagName === "BUTTON") {
-        generateForm(e.target.dataset.menuid);
-      }
-    });
-  </script>
-
 </body>
 </html>
