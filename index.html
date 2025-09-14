@@ -19,23 +19,29 @@
       box-shadow: 0 2px 4px rgba(44,62,80,0.05);
     }
     nav {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
-      gap: 32px;
+      flex-wrap: wrap;
+      gap: 18px;
       align-items: center;
       padding: 0.5em 0;
+      justify-content: flex-start;
     }
     nav a {
       color: #e4e8ef;
       text-decoration: none;
       font-weight: 500;
-      font-size: 1.05em;
+      font-size: 1.02em;
       letter-spacing: 0.5px;
       transition: color 0.2s;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
     }
     nav a:hover {
       color: #fece33;
+      background: #2223;
       text-shadow: 0 0 3px #2223;
     }
     .container {
@@ -54,8 +60,9 @@
     @media (max-width: 700px) {
       nav {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
         padding: 1em 0;
+        align-items: flex-start;
       }
       .container {
         padding: 1em;
@@ -66,9 +73,14 @@
 <body>
   <header>
     <nav>
-      <a href="/fivem/phantom/calculator/index.html">Phantom Register Calculator</a>
+		<a href="https://discord.gg/sXyxHBb46N">My Discord</a>
+		<a href="/fivem/phantom/calculator/index.html">Phantom Register Calculator</a>
+		<a href="https://github.com/OhItsDiiTz/RustPlugin">Rust Server Plugin</a>
+		<a href="https://github.com/OhItsDiiTz/t9_stats">Cold War Stats (PC)</a>
+		<a href="https://github.com/OhItsDiiTz/t9_hoster">Cold War Lobby Tool (PC)</a>
+		<a href="https://github.com/OhItsDiiTz/IW5CheatSP">MW3 Spec Ops (PC)</a>
       
-      <!-- Add links for other tools/pages here -->
+      <!-- Add more links as desired! -->
     </nav>
   </header>
   <div class="container">
