@@ -209,13 +209,12 @@
         form.appendChild(div);
       });
 		/*
-		
-		*/
-      form.innerHTML += `
 		<div class="discount-row">
           <input type="checkbox" id="emsDiscount" />
           <label for="emsDiscount">EMS/PD Discount</label>
         </div>
+		*/
+      form.innerHTML += `
         <div class="button-row">
           <button type="button" id="calculateBtn">Calculate</button>
           <button type="button" id="clearBtn">Clear</button>
@@ -236,7 +235,7 @@
       calculateBtn.addEventListener("click", () => {
         let total = 0;
         let details = "";
-        const discountApplied = form.querySelector("#emsDiscount").checked;
+        //const discountApplied = form.querySelector("#emsDiscount").checked;
 
         currentMenu.forEach(item => {
           const inputName = toInputName(item.name);
@@ -244,7 +243,7 @@
           if (qty <= 0) return;
 
           let cost = item.price * qty;
-          if (discountApplied) cost -= cost * PDDiscount;
+          //if (discountApplied) cost -= cost * PDDiscount;
 
           total += cost;
           details += `${qty}x ${item.name} - $${cost.toLocaleString()}\n`;
