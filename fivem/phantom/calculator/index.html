@@ -26,6 +26,7 @@
     <button data-menuid="burgershot">Burgershot</button>
     <button data-menuid="pondcafe">Pond Cafe</button>
     <button data-menuid="blazeit">Blaze It</button>
+    <button data-menuid="coolbeans">Coolbeans</button>
   </div>
 
   <h2>Calculator</h2>
@@ -147,6 +148,25 @@
 		{ name: "Beatz OG Haze (20 Health & 10 Armor)", price: 600 },
 		{ name: "LS OG (Stress Relief)", price: 500 },
 		{ name: "Space Cadet Kush (Stress Relief)", price: 500 },
+	  ],
+	  coolbeans: [
+		{ name: "Hello Kitty Burger Meal", price: 500 },
+		{ name: "HK Strawberry Bubble Tea", price: 500 },
+		{ name: "Cinna Cinnamoroll", price: 500 },
+		{ name: "Cool Beans lunch box", price: 1000 },
+		{ name: "Orange Juice", price: 200 },
+		{ name: "Twin Stars Chocolate Milkshake", price: 200 },
+		{ name: "HK Matcha Tea", price: 200 },
+		//{ name: "Twin Star Coissanwich", price: 0 },
+		{ name: "Hello Kitty Tart", price: 200 },
+		{ name: "Frosted HK Strawberry Donut", price: 200 },
+		{ name: "Keroppi Sundae", price: 500 },
+		{ name: "Chocolate Cup Cake", price: 200 },
+		{ name: "Vanilla Cup Cake", price: 200 },
+		{ name: "White Mocha", price: 350 },
+		{ name: "Latte", price: 350 },
+		{ name: "Caramel Macchiato", price: 350 },
+		{ name: "Affogato", price: 350 },
 	  ]
     };
 
@@ -188,12 +208,13 @@
         div.appendChild(label);
         form.appendChild(div);
       });
-
-      form.innerHTML += `
-        <div class="discount-row">
+		/*
+		<div class="discount-row">
           <input type="checkbox" id="emsDiscount" />
           <label for="emsDiscount">EMS/PD Discount</label>
         </div>
+		*/
+      form.innerHTML += `
         <div class="button-row">
           <button type="button" id="calculateBtn">Calculate</button>
           <button type="button" id="clearBtn">Clear</button>
