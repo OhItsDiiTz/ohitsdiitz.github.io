@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Time Calculator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .row { margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    label { cursor: pointer; }
+    input[type="number"] { width: 70px; }
+    button { padding: 6px 12px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h1>Time Calculator</h1>
+
+  <div class="row">
+    <label>
+      <input type="checkbox" id="doublePay" />
+      Double Pay
+    </label>
+
+    <select id="rank">
+      <option selected>Trainee</option>
+      <option>Paramedic</option>
+      <option>EMT</option>
+      <option>A-EMT</option>
+      <option>S-EMT</option>
+      <option>Supervisor</option>
+      <option>Lieutenant</option>
+      <option>Captain</option>
+      <option>Doctor</option>
+      <option>Deputy Chief</option>
+      <option>Chief</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <input type="number" id="hours" min="0" step="1" value="0" />
+    <input type="number" id="minutes" min="0" step="10" value="0" />
+    <button id="calculateBtn">Calculate</button>
+  </div>
+  <div id="calc_result"></div>
+
+  <script>
+    function getRankPay(rank) {
+      switch (rank) {
+        case "Trainee":      return 4500;
+        case "Paramedic":
+        case "EMT":          return 5250;
+        case "A-EMT":        return 5750;
+        case "S-EMT":        return 6250;
+        case "Supervisor":   return 7250;
+        case "Lieutenant":   return 8500;
+        case "Captain":      return 7750;
+        case "Doctor":       return 8750;
+        case "Deputy Chief": return 10000;
+        case "Chief":        return 10250;
+        default:             return 0;
+      }
+    }
+
+    const formatter = new Intl.NumberFormat(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
+
+    document.getElementById("calculateBtn").addEventListener("click", () => {
+		const rank = document.getElementById("rank").value;
+		const doublePay = document.getElementById("doublePay").checked;
+		const hours = parseInt(document.getElementById("hours").value || "0", 10);
+		const minutes = parseInt(document.getElementById("minutes").value || "0", 10);
+	
+		let base_pay = getRankPay(rank);
+		let pay = doublePay ? ((base_pay - 1000) * 2) : base_pay;
+	
+		let hourly_pay = pay * 6;
+		let final_hours = hourly_pay * hours;
+	
+		let paycheck = pay * Math.floor(minutes / 10);
+	
+		let final = paycheck + final_hours;
+	
+		const formatted = formatter.format(final); // like C# :n0
+		
+		
+		document.getElementById("calc_result").textContent = `\n\r$${final.toLocaleString()}`;
+		//alert('Result copied to clipboard');
+		if (navigator.clipboard && navigator.clipboard.writeText) {
+		navigator.clipboard.writeText(formatted).catch(() => {});
+		}
+    });
+  </script>
+
+</body>
+</html>
