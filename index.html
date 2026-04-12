@@ -1,95 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>My Tools Hub</title>
-  <link rel="stylesheet" href="/assets/style.css">
-  <style>
-    body {
-      margin: 0;
-      background: #f8f9fa;
-      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-      color: #222;
-    }
-    header {
-      background: #292b2c;
-      color: #fff;
-      padding: 0.5em 0;
-      box-shadow: 0 2px 4px rgba(44,62,80,0.05);
-    }
-    nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      align-items: center;
-      padding: 0.5em 0;
-      justify-content: flex-start;
-    }
-    nav a {
-      color: #e4e8ef;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.02em;
-      letter-spacing: 0.5px;
-      transition: color 0.2s;
-      padding: 2px 8px;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-    nav a:hover {
-      color: #fece33;
-      background: #2223;
-      text-shadow: 0 0 3px #2223;
-    }
-    .container {
-      max-width: 900px;
-      margin: 2em auto;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
-      padding: 2em;
-    }
-    h1, h2 {
-      font-weight: 700;
-      margin-top: 0;
-      color: #454545;
-    }
-    @media (max-width: 700px) {
-      nav {
-        flex-direction: column;
-        gap: 12px;
-        padding: 1em 0;
-        align-items: flex-start;
-      }
-      .container {
-        padding: 1em;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-		<a href="https://discord.gg/bskh4ZG32J">My Discord</a>
-		<a href="/fivem/phantom/calculator/index.html">Phantom Register Calculator</a>
-		<a href="https://github.com/OhItsDiiTz/QFrame4">QFrame4</a>
-		<a href="https://github.com/OhItsDiiTz/idc-scripts">IDA Scripts</a>
-		<a href="https://github.com/OhItsDiiTz/RustPlugin">Rust Server Plugin</a>
-		<a href="https://github.com/OhItsDiiTz/t9_stats">Cold War Stats (PC)</a>
-		<a href="https://github.com/OhItsDiiTz/t9_hoster">Cold War Lobby Tool (PC)</a>
-		<a href="https://github.com/OhItsDiiTz/IW5CheatSP">MW3 Spec Ops (PC)</a>
-		<a href="https://github.com/OhItsDiiTz/LovenseLushController">Repo Lovense Controller</a>
-      
-      <!-- Add more links as desired! -->
-    </nav>
-  </header>
-  <div class="container">
-    <!-- Your page's unique content here -->
-    <h1>Welcome to My Tools Hub</h1>
-    <p>Above is where you can find repos I have made aswell as my discord if you wish to join :)</p>
-  </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>dark-stack-basic</title>
+		<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				--bg: #0b0d12;
+				--panel: #131720;
+				--panel-2: #191f2b;
+				--text: #f2f5f8;
+				--muted: #9ba4b2;
+				--line: rgba(255, 255, 255, .08);
+				--accent: #f0b35e
+			}
+	
+			* {
+				box-sizing: border-box
+			}
+	
+			body {
+				margin: 0;
+				background: var(--bg);
+				color: var(--text);
+				font-family: 'Satoshi', system-ui, sans-serif;
+				line-height: 1.65
+			}
+	
+			a {
+				text-decoration: none;
+				color: inherit
+			}
+	
+			.wrap {
+				max-width: 860px;
+				margin: auto;
+				padding: 0 22px
+			}
+	
+			header {
+				padding: 24px 0;
+				border-bottom: 1px solid var(--line);
+				display: flex;
+				justify-content: space-between;
+				align-items: center
+			}
+	
+			.nav {
+				display: flex;
+				gap: 18px;
+				color: var(--muted)
+			}
+	
+			.hero {
+				padding: 64px 0 26px
+			}
+	
+			.hero h1 {
+				font-size: clamp(2.7rem, 6vw, 4.8rem);
+				line-height: 1.02;
+				letter-spacing: -.04em;
+				margin: 0 0 12px
+			}
+	
+			.hero p {
+				color: var(--muted);
+				max-width: 58ch
+			}
+	
+			.panel {
+				background: var(--panel);
+				border: 1px solid var(--line);
+				border-radius: 20px;
+				padding: 22px;
+				margin: 16px 0
+			}
+	
+			.eyebrow {
+				color: var(--accent);
+				text-transform: uppercase;
+				letter-spacing: .14em;
+				font-size: .85rem;
+				margin-bottom: 8px;
+				display: block
+			}
+	
+			.row {
+				display: grid;
+				grid-template-columns: 170px 1fr;
+				gap: 18px;
+				align-items: start;
+				padding: 16px 0;
+				border-top: 1px solid rgba(255, 255, 255, .06)
+			}
+	
+			.row:first-child {
+				border-top: none;
+				padding-top: 0
+			}
+	
+			.label {
+				color: var(--muted);
+				font-weight: 700
+			}
+	
+			footer {
+				padding: 8px 0 44px;
+				color: var(--muted)
+			}
+	
+			@media(max-width:760px) {
+				.row {
+					grid-template-columns: 1fr
+				}
+				
+				.nav {
+					display: none
+				}
+			}
+		</style>
+	</head>
+	<body>
+	
+		<div class="wrap">
+		<header>
+			<strong>OhItsDiiTz (David)</strong>
+			<nav class="nav">
+				<!-- <a href="#">Work</a> -->
+				<!-- <a href="#">About</a> -->
+				<!-- <a href="#">Contact</a> -->
+			</nav>
+		</header>
+		<section class="hero">
+			<h1>Projects and Such</h1>
+			<p>This page just contains projects and such that I have worked on/made (mainly menus tbh)</p>
+		</section>
+		
+		<section class="panel">
+			<span class="eyebrow">Links</span>
+			<div class="row">
+				<div class="label"><a href="http://discord.com/invite/bskh4ZG32J">Quarantine</a></div>
+				<div>A discord server to check out some of the things I made for Quarantine (A menu for multiple games), and just a community for Xbox 360/PS3/PS4</div>
+			</div>
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz">GitHub</a></div>
+				<div>Github where all of my repos are</div>
+			</div>
+		</section>
+		
+		<section class="panel">
+			<span class="eyebrow">About</span>
+			<p style="margin:0;color:var(--muted)">Self taught reverse engineer. Not much else to say other then I enjoy reverse engineering games and doing things with that info.</p>
+		</section>
+		
+		<section class="panel">
+		<span class="eyebrow">PC Projects</span>
+			
+			<div class="row">
+				<div class="label"><a href="#">Project one</a></div>
+				<div>A larger repo, framework, or main tool with a short description and one link.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/Left4Dead2-PC">Left 4 Dead 2 Menu</a></div>
+				<div>A mod menu for Left 4 Dead 2 meant to be used when you are the host of the server</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/idc-scripts">IDC Scripts</a></div>
+				<div>These are not only for PC.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/QFrame4">QFrame4</a></div>
+				<div>A project for QT Creator that is for Frame4.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/LovenseLushController">Repo Lovense Lush Controller</a></div>
+				<div>A mod for repo that controls a lovense toy.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/register-calculator">Register Calculator</a></div>
+				<div>A calculator for businesses in phantom rp for calculating totals. A web version can be found <a href="https://ohitsdiitz.github.io/fivem/phantom/calculator/index.html">here</a></div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/RustPlugin">Rust Mod</a></div>
+				<div>A mod for a rust server using oxide</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/t9_stats">T9 Stats</a></div>
+				<div>A mod for Black Ops Cold War to edit stats.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/t9_hoster">T9 Hoster</a></div>
+				<div>A mod for Black Ops Cold War to have a fun modded lobby.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/T9Host">T9 Host</a></div>
+				<div>A tool for Black Ops Cold War to have a fun modded lobby.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/IW5CheatSP">IW5 SP Cheat</a></div>
+				<div>A mod for MW3 Special Ops.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/Utilities-PC">Utilities</a></div>
+				<div>A project meant to be included into another to assist in making a menu or plugin of some sort, mainly for mods. Contains hooking and other stuff</div>
+			</div>
+			
+		</section>
+		
+		<section class="panel">
+		<span class="eyebrow">Xbox 360 Projects</span>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/BorderlandsTPS-Xbox-360">Borderlands: The Pre Sequel Menu</a></div>
+				<div>Mod menu for quarantine for Borderlands: The Pre Sequel</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/Borderlands2-Xbox-360">Borderlands 2 Menu</a></div>
+				<div>Mod menu for quarantine for Borderlands 2</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/Borderlands2-Xbox-360">Borderlands 2 Menu</a></div>
+				<div>Mod menu for quarantine for Borderlands 2</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/Skate2-Xbox-360">Skate 2 Plugin</a></div>
+				<div>A project for skate 2 that contains skybox rendering, just draws "Quarantine" in the sky</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/Loader-Xbox-360">Quarantine Loader</a></div>
+				<div>A loader for the menu quarantine, mainly meant to load/unload plugins as games get loaded on the Xbox 360. Hooks XexLoadExecutable to catch the load/unload event</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/Halo4-Xbox-360">Halo 4 Menu</a></div>
+				<div>A mod menu for Halo 4 meant for the campaign but works in multiplayer.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/GearsOfWarJudgement-Xbox-360">Gears of War Judgement Menu</a></div>
+				<div>A mod menu for Gears of War Judgement.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/GearsOfWar3-Xbox-360">Gears of War 3 Menu</a></div>
+				<div>A mod menu for Gears of War 3.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/GearsOfWar2-Xbox-360">Gears of War 2 Menu</a></div>
+				<div>A mod menu for Gears of War 2.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/GearsOfWar-Xbox-360">Gears of War Menu</a></div>
+				<div>A mod menu for Gears of War.</div>
+			</div>
+			
+			<div class="row">
+				<div class="label"><a href="https://github.com/OhItsDiiTz/Utilities-Xbox-360">Utilities</a></div>
+				<div>A project meant to be included into another to assist in making a menu, contains hooking and some other stuff</div>
+			</div>
+			
+		</section>
+		
+		<footer>You really scrolled this far?</footer>
+		</div>
+	</body>
 </html>
